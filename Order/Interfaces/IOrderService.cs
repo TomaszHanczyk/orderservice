@@ -4,5 +4,6 @@
 	public interface IOrderService
 	{
 		Task ProcessOrderAsync(int orderId);
+		bool TryAddOrder(Models.Order order);
 	}
 }

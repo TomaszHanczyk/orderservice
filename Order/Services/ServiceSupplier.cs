@@ -12,8 +12,8 @@ namespace Order.Services
 		{
 			var services = new ServiceCollection();
 			services.AddTransient<IOrderService, OrderService>();
-			services.AddTransient<IOrderRepository, OrderRepository>();
-			services.AddTransient<ILogger, Logger>();
+			services.AddScoped<IOrderRepository, OrderRepository>();
+			services.AddSingleton<ILogger, Logger>();
 			return services.BuildServiceProvider();
 		}
 

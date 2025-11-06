@@ -1,4 +1,5 @@
 ﻿using Order.Interfaces;
+using Order.Models;
 
 namespace Order.Services
 {
@@ -29,6 +30,16 @@ namespace Order.Services
 			}
 
 			logger.LogInfo($"End of processing order id: {orderId}.");
+		}
+
+		public bool TryAddOrder(Models.Order order)
+		{
+			logger.LogInfo($"Start of adding order id: {order.Id}.");
+
+			bool isAdded = orderRepository.TryAddOrder(order);
+
+			logger.LogInfo($"End of adding order id: {order.Id}. Order has{(isAdded ? "" : " NOT")} been added.");
+			return isAdded;
 		}
 	}
 }
