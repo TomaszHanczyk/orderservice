@@ -33,5 +33,10 @@ namespace Order.Repositories
 
 			return sampleOrders;
 		}
+
+		public bool TryAddOrder(Models.Order order)
+		{
+			return _orders.TryAdd(order.Id, order);
+		}
 	}
 }
